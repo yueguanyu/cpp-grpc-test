@@ -1,4 +1,4 @@
-set(CMAKE_C_COMPILER "/usr/local/bin/x86_64-apple-darwin19-gcc-9.2.0")
+set(CMAKE_C_COMPILER "/usr/local/bin/gcc-9")
 set(CMAKE_C_COMPILER_ARG1 "")
 set(CMAKE_C_COMPILER_ID "GNU")
 set(CMAKE_C_COMPILER_VERSION "9.2.0")
