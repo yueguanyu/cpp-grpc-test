@@ -91,11 +91,11 @@ foreach(_target
         ${_PROTOBUF_LIBPROTOBUF})
 endforeach()
 
-include(CTest)
-enable_testing()
+# include(CTest)
+# enable_testing()
 
-add_executable(cpp-grpc-test main.cpp)
+# add_executable(cpp-grpc-test main.cpp)
 
-set(CPACK_PROJECT_NAME ${PROJECT_NAME})
-set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
-include(CPack)
+# set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+# set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+# include(CPack)
