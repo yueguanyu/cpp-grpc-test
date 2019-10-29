@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.0.0)
 project(cpp-grpc-test VERSION 0.1.0)
 
+set(Protobuf_DIR "/usr/local/Cellar/grpc")
 set(gRPC_DIR "/usr/local/Cellar/grpc")
 
 if(NOT MSVC)
@@ -44,7 +45,6 @@ else()
     # Find Protobuf installation
     # Looks for protobuf-config.cmake file installed by Protobuf's cmake installation.
     set(protobuf_MODULE_COMPATIBLE TRUE)
-    find_package(Protobuf REQUIRED)
     message(STATUS "CMAKE_ROOT ${CMAKE_ROOT}")
     find_package(Protobuf REQUIRED)
     message(STATUS "Using protobuf ${protobuf_VERSION}")
