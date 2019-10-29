@@ -1,8 +1,10 @@
 cmake_minimum_required(VERSION 3.0.0)
 project(cpp-grpc-test VERSION 0.1.0)
 
+set(Protobuf_DIR, "/usr/local/Cellar/grpc/third_party/protobuf/cmake")
+
 if(NOT MSVC)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 else()
     add_definitions(-D_WIN32_WINNT=0x600)
 endif()
