@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.0.0)
 project(cpp-grpc-test VERSION 0.1.0)
 
-set(Protobuf_DIR, "/usr/local/Cellar/grpc/third_party/protobuf/cmake")
+set(gRPC_DIR "/usr/local/Cellar/grpc")
 
 if(NOT MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
@@ -28,7 +28,7 @@ if(GRPC_AS_SUBMODULE)
     # Include the gRPC's cmake build (normally grpc source code would live
     # in a git submodule called "third_party/grpc", but this example lives in
     # the same repository as gRPC sources, so we just look a few directories up)
-    add_subdirectory(../../.. ${CMAKE_CURRENT_BINARY_DIR}/grpc EXCLUDE_FROM_ALL)
+    add_subdirectory(/usr/local/Cellar/grpc ${CMAKE_CURRENT_BINARY_DIR}/grpc EXCLUDE_FROM_ALL)
     message(STATUS "Using gRPC via add_subdirectory.")
     
     # After using add_subdirectory, we can now use the grpc targets directly from
@@ -44,7 +44,9 @@ else()
     # Find Protobuf installation
     # Looks for protobuf-config.cmake file installed by Protobuf's cmake installation.
     set(protobuf_MODULE_COMPATIBLE TRUE)
-    find_package(Protobuf CONFIG REQUIRED)
+    find_package(Protobuf REQUIRED)
+    message(STATUS "CMAKE_ROOT ${CMAKE_ROOT}")
+    find_package(Protobuf REQUIRED)
     message(STATUS "Using protobuf ${protobuf_VERSION}")
 
     set(_PROTOBUF_LIBPROTOBUF protobuf::libprotobuf)
@@ -52,7 +54,7 @@ else()
 
     # Find gRPC installation
     # Looks for gRPCConfig.cmake file installed by gRPC's cmake installation.
-    find_package(gRPC CONFIG REQUIRED)
+    find_package(gRPC REQUIRED)
     message(STATUS "Using gRPC ${gRPC_VERSION}")
 
     set(_GRPC_GRPCPP_UNSECURE gRPC::grpc++_unsecure)
