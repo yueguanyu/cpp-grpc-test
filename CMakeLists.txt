@@ -1,8 +1,6 @@
 cmake_minimum_required(VERSION 3.0.0)
 project(cpp-grpc-test VERSION 0.1.0)
 
-set(gRPC_DIR "/usr/local/Cellar/grpc/build_grpc")
-
 if(NOT MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 else()
@@ -53,12 +51,12 @@ else()
 
     # Find gRPC installation
     # Looks for gRPCConfig.cmake file installed by gRPC's cmake installation.
-    find_package(gRPC REQUIRED)
+    find_package(gRPC CONFIG REQUIRED)
     message(STATUS "Using gRPC ${gRPC_VERSION}")
 
     set(_GRPC_GRPCPP_UNSECURE gRPC::grpc++_unsecure)
     set(_GRPC_CPP_PLUGIN_EXECUTABLE $<TARGET_FILE:gRPC::grpc_cpp_plugin>)
-    set(_GRPC_CPP_PLUGIN_EXECUTABLE grpc_cpp_plugin)
+    # set(_GRPC_CPP_PLUGIN_EXECUTABLE grpc_cpp_plugin)
 endif()
 
 # Proto file
